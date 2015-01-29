@@ -15,17 +15,19 @@ function PeopleCtrl($scope, $http) {
 	      $scope.people = [];
 	      $scope.people = data;
 	    });*/
+    var baseurl = 'http://suryanto3.cloudapp.net/api/entities';
     $scope.loadRootFolder = function() {
-        $http.get('http://sin32001031/ServiceBus/api/entities').success(function(data) {
+        $http.get(baseurl).success(function(data) {
 	      $scope.rootfolder = [];
 	      $scope.rootfolder = data;
           console.log(data);
 	    });
     };
-    $scope.loadPeopleDetail = function() {
-        $http.get('json/tabledatadetail.json').success(function(data) {
-	      $scope.people = [];
-	      $scope.people = data;
+    $scope.loadFolderDetail = function(masterId) {
+        console.log(masterId);
+        $http.get(baseurl +'/' + masterId).success(function(data) {
+	      $scope.rootfolder = [];
+	      $scope.rootfolder = data;
 	    });
     };
 

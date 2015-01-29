@@ -7,11 +7,14 @@
           <th>Type</th>
       </tr>
       <tr ng-repeat="data in rootfolder">
-      	  <td class="text-center">
-      	  	<span ng-show="data.Type=='Folder'" class="text-warning glyphicon glyphicon-folder-open" aria-hidden="true"></span>
-      	  	<span ng-show="data.Type=='file'" class="text-danger glyphicon glyphicon-picture" aria-hidden="true"></span>
+      	  <td class="text-center" style="width:10px;">
+      	  	<span ng-show="data.Type=='1'" class="text-warning glyphicon glyphicon-folder-open" aria-hidden="true"></span>
+      	  	<span ng-show="data.Type=='0'" class="text-danger glyphicon glyphicon-picture" aria-hidden="true"></span>
       	  </td>
-          <td><a ng-click="loadPeopleDetail()">{{data.Name}}</a></td>
+          <td>
+            <a ng-show="data.Type=='1'" ng-click="loadFolderDetail(data.MasterId)">{{data.Name}}</a>
+            <a ng-show="data.Type=='0'" ng-click="">{{data.Name}}</a>
+          </td>
           <td>{{data.Type}}</td>
       </tr>
       </table>

@@ -3,6 +3,9 @@
 html,body,.main-content,.left-menu {
   height: 100%;
 }
+a {
+  cursor: pointer;
+}
 .top-header {
   background-color: #1a1a1a;
   height: 80px;
