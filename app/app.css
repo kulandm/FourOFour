@@ -1,0 +1,38 @@
+/* app css stylesheet */
+
+html,body,.main-content,.left-menu {
+  height: 100%;
+}
+.top-header {
+  background-color: #1a1a1a;
+  height: 80px;
+  width: 100%;
+  position: fixed;
+  z-index: 99;
+}
+.logo {
+  color: #00abec;
+  font-size: 35px;
+  font-weight: bold;
+  padding-top: 13px;
+}
+.profile-menu {
+  color:#fff;
+  padding-top: 23px;
+  text-align: right;
+}
+.left-menu {
+  background-color: #3e3d4d;
+  height: 100%;
+  color: #fff;
+  padding-top: 24px;
+  line-height: 36px;
+  position: relative;
+}
+.main-content {
+  padding-top: 80px;
+}
+.hackathon-logo {
+  position: absolute;
+  bottom: 0;
+}
