@@ -17,7 +17,7 @@ function PeopleCtrl($scope, $http) {
         $http.get(baseurl).success(function(data) {
 	      $scope.rootfolder = [];
 	      $scope.rootfolder = data;
-          console.log(data);
+          $scope.breadcrumps = [];
 	    });
     };
     $scope.loadFolderDetail = function(masterId,name) {
@@ -28,5 +28,16 @@ function PeopleCtrl($scope, $http) {
           $scope.breadcrumps.push({'name':name});
 	    });
     };
+    $scope.refreshBreadcrump = function(index) {
+        console.log(index);
+        var valuesArr = $scope.breadcrumps;
+        //removeValFromIndex = [0,2,4];    
 
+        for (var i = index.length -1; i >= 0; i--) 
+           valuesArr.splice(index[i],1);
+    }
+    $scope.clearBreadcrump = function(index) {
+        $scope.breadcrumps = [];
+    }
+    $scope.loadRootFolder();
 }
