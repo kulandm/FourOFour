@@ -13,7 +13,6 @@ function PeopleCtrl($scope, $http) {
     $scope.loading = true;
     var baseurl = 'http://suryanto3.cloudapp.net/api/entities';
     $scope.breadcrumps = [];
-    //$scope.loadRootFolder();
     $scope.loadRootFolder = function() {
         $http.get(baseurl).success(function(data) {
 	      $scope.rootfolder = [];
@@ -23,24 +22,20 @@ function PeopleCtrl($scope, $http) {
 	    });
     };
     $scope.loadFolderDetail = function(masterId,name) {
-        console.log(masterId);
         $http.get(baseurl +'/' + masterId).success(function(data) {
 	      $scope.rootfolder = [];
 	      $scope.rootfolder = data;
           $scope.loading = false;
-          $scope.breadcrumps.push({'name':name});
 	    });
     };
-    $scope.refreshBreadcrump = function(index) {
-        console.log(index);
+    $scope.refreshBreadcrump = function(index) {        
         var valuesArr = $scope.breadcrumps;
-        //removeValFromIndex = [0,2,4];    
 
-        for (var i = index.length -1; i >= 0; i--) 
-           valuesArr.splice(index[i],1);
+        for (var i = valuesArr.length; i > index-1; i--) 
+           $scope.breadcrumps.splice(i+1,1);
     }
-    $scope.clearBreadcrump = function(index) {
-        $scope.breadcrumps = [];
+    $scope.clearLoadBreadcrump = function(masterId,name) {
+        $scope.breadcrumps.push({'datas':{'name':name,'id':masterId}});
     }
     $scope.loadRootFolder();
 }

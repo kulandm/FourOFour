@@ -54,7 +54,7 @@
           <div class="spinner" ng-show="loading"></div>
           <ol class="breadcrumb" ng-hide="loading">
             <li><a ng-click="loadRootFolder();">Root</a></li>
-            <li ng-repeat="breadcrump in breadcrumps"><a ng-click="refreshBreadcrump($index)">{{breadcrump.name}}</a></li>
+            <li ng-repeat="breadcrump in breadcrumps"><a ng-click="loadFolderDetail(breadcrump.datas.id,breadcrump.datas.name);refreshBreadcrump($index)">{{breadcrump.datas.name}}</a></li>
           </ol>
             <table class="table table-striped hidden-xs" ng-hide="loading">
               <tr>
@@ -69,7 +69,7 @@
                     <span ng-show="data.Type=='0'" class="text-danger glyphicon glyphicon-picture" aria-hidden="true"></span>
                   </td>
                   <td>
-                    <a ng-show="data.Type=='1'" ng-click="loadFolderDetail(data.MasterId,data.Name)">{{data.Name}}</a>
+                    <a ng-show="data.Type=='1'" ng-click="loadFolderDetail(data.MasterId,data.Name);clearLoadBreadcrump(data.MasterId,data.Name);">{{data.Name}}</a>
                     <a ng-show="data.Type=='0'" ng-click="">{{data.Name}}</a>
                   </td>
                   <td>{{data.CreateDate | date:'medium'}}</td>
