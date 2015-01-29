@@ -51,11 +51,12 @@
     </div>
     <div class="col-md-10">
       <div ng-controller="PeopleCtrl">
-          <ol class="breadcrumb">
+          <div class="spinner" ng-show="loading"></div>
+          <ol class="breadcrumb" ng-hide="loading">
             <li><a ng-click="loadRootFolder();">Root</a></li>
             <li ng-repeat="breadcrump in breadcrumps"><a ng-click="refreshBreadcrump($index)">{{breadcrump.name}}</a></li>
           </ol>
-            <table class="table table-striped hidden-xs">
+            <table class="table table-striped hidden-xs" ng-hide="loading">
               <tr>
                 <th></th>
                 <th>Name</th>
@@ -75,7 +76,7 @@
                   <td>{{data.CreatedBy}}</td>
               </tr>
             </table>
-            <div class="panel panel-default visible-xs" ng-repeat="data in rootfolder">
+            <div ng-hide="loading" class="panel panel-default visible-xs" ng-repeat="data in rootfolder">
               <div class="panel-heading">
                 <span ng-show="data.Type=='1'" class="text-warning glyphicon glyphicon-folder-open" aria-hidden="true"></span>
                 <span ng-show="data.Type=='0'" class="text-danger glyphicon glyphicon-picture" aria-hidden="true"></span>&nbsp;&nbsp;

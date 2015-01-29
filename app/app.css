@@ -45,3 +45,11 @@ a {
   font-size: 20px;
   text-align: right;
 }
+.spinner {
+  background: url('images/ajaxpreloader.gif') no-repeat scroll 0 0 transparent;
+  width: 120px;
+  height: 120px;
+  margin-top: 30%;
+  text-align: center;
+  margin-left: 38%;
+}

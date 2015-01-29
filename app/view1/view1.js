@@ -10,6 +10,7 @@ angular.module('myApp.view1', ['ngRoute'])
 }])
 
 function PeopleCtrl($scope, $http) {  
+    $scope.loading = true;
     var baseurl = 'http://suryanto3.cloudapp.net/api/entities';
     $scope.breadcrumps = [];
     //$scope.loadRootFolder();
@@ -18,6 +19,7 @@ function PeopleCtrl($scope, $http) {
 	      $scope.rootfolder = [];
 	      $scope.rootfolder = data;
           $scope.breadcrumps = [];
+          $scope.loading = false;
 	    });
     };
     $scope.loadFolderDetail = function(masterId,name) {
@@ -25,6 +27,7 @@ function PeopleCtrl($scope, $http) {
         $http.get(baseurl +'/' + masterId).success(function(data) {
 	      $scope.rootfolder = [];
 	      $scope.rootfolder = data;
+          $scope.loading = false;
           $scope.breadcrumps.push({'name':name});
 	    });
     };
