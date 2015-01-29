@@ -9,13 +9,10 @@ angular.module('myApp.view1', ['ngRoute'])
   });
 }])
 
-function PeopleCtrl($scope, $http) {    
-
-    /*$http.get('json/tabledata.json').success(function(data) {
-	      $scope.people = [];
-	      $scope.people = data;
-	    });*/
+/*function PeopleCtrl($scope, $http) {  
     var baseurl = 'http://suryanto3.cloudapp.net/api/entities';
+    $scope.breadcrumps = [];
+    //$scope.loadRootFolder();
     $scope.loadRootFolder = function() {
         $http.get(baseurl).success(function(data) {
 	      $scope.rootfolder = [];
@@ -23,12 +20,13 @@ function PeopleCtrl($scope, $http) {
           console.log(data);
 	    });
     };
-    $scope.loadFolderDetail = function(masterId) {
+    $scope.loadFolderDetail = function(masterId,name) {
         console.log(masterId);
         $http.get(baseurl +'/' + masterId).success(function(data) {
 	      $scope.rootfolder = [];
 	      $scope.rootfolder = data;
+          $scope.breadcrumps.push({'name':name});
 	    });
     };
 
-}
+}*/

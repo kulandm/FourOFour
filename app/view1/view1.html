@@ -1,5 +1,9 @@
 <div ng-controller="PeopleCtrl">
-      <p>    Click <a ng-click="loadRootFolder()">here</a> to load data.</p>
+  static
+      <ol class="breadcrumb">
+      <li><a ng-click="loadRootFolder()">Root</a></li>
+      <li ng-repeat="breadcrump in breadcrumps"><a ng-click="loadFolderDetail(breadcrump.name,breadcrump.name)">{{breadcrump.name}}</a></li>
+    </ol>
       <table class="table table-striped">
         <tr>
           <th></th>
@@ -12,7 +16,7 @@
       	  	<span ng-show="data.Type=='0'" class="text-danger glyphicon glyphicon-picture" aria-hidden="true"></span>
       	  </td>
           <td>
-            <a ng-show="data.Type=='1'" ng-click="loadFolderDetail(data.MasterId)">{{data.Name}}</a>
+            <a ng-show="data.Type=='1'" ng-click="loadFolderDetail(data.MasterId,data.Name)">{{data.Name}}</a>
             <a ng-show="data.Type=='0'" ng-click="">{{data.Name}}</a>
           </td>
           <td>{{data.Type}}</td>
