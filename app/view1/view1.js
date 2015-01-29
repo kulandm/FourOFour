@@ -9,7 +9,7 @@ angular.module('myApp.view1', ['ngRoute'])
   });
 }])
 
-/*function PeopleCtrl($scope, $http) {  
+function PeopleCtrl($scope, $http) {  
     var baseurl = 'http://suryanto3.cloudapp.net/api/entities';
     $scope.breadcrumps = [];
     //$scope.loadRootFolder();
@@ -29,4 +29,4 @@ angular.module('myApp.view1', ['ngRoute'])
 	    });
     };
 
-}*/
+}
