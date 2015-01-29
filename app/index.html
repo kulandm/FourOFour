@@ -48,7 +48,31 @@
         <img src="images/hackathon.png"/>
       </div>
     </div>
-    <div class="col-md-10"><div ng-view></div></div>
+    <div class="col-md-10"><div ng-controller="PeopleCtrl">
+  static
+      <ol class="breadcrumb">
+      <li><a ng-click="loadRootFolder()">Root</a></li>
+      <li ng-repeat="breadcrump in breadcrumps"><a ng-click="loadFolderDetail(breadcrump.name,breadcrump.name)">{{breadcrump.name}}</a></li>
+    </ol>
+      <table class="table table-striped">
+        <tr>
+          <th></th>
+          <th>Name</th>
+          <th>Type</th>
+      </tr>
+      <tr ng-repeat="data in rootfolder">
+          <td class="text-center" style="width:10px;">
+            <span ng-show="data.Type=='1'" class="text-warning glyphicon glyphicon-folder-open" aria-hidden="true"></span>
+            <span ng-show="data.Type=='0'" class="text-danger glyphicon glyphicon-picture" aria-hidden="true"></span>
+          </td>
+          <td>
+            <a ng-show="data.Type=='1'" ng-click="loadFolderDetail(data.MasterId,data.Name)">{{data.Name}}</a>
+            <a ng-show="data.Type=='0'" ng-click="">{{data.Name}}</a>
+          </td>
+          <td>{{data.Type}}</td>
+      </tr>
+      </table>
+</div></div>
   </div>
   
 
